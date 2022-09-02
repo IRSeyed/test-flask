@@ -10,8 +10,10 @@ def hello_world():
 
 @app.route('/test')
 def test():
-    file = open('data.json', 'w')
-    return jsonify(json.load(file))
+    file = open('data.json', 'r')
+    data = json.load(file)
+    file.close()
+    return jsonify(data)
 
 @app.route('/getreq')
 def get_req():
